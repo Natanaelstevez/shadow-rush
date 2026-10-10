@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Shadow Rush</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <!-- Este color tiene que coincidir con PALETTE.BG de js/config.js. -->
+  <meta name="theme-color" content="#0d0912">
+  <meta name="description" content="Shadow Rush, juego casual de infiltracion y luz.">
+
+  <!-- Aplicacion instalable: manifiesto, iconos y los nombres que usan iOS y
+       Android al anadir el juego a la pantalla de inicio. -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icono.svg" type="image/svg+xml">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Shadow Rush">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="game"></canvas>
+
+  <!--
+    El SDK de YouTube Playables. Va antes que cualquier codigo del juego: el
+    orden es obligatorio y se valida durante la publicacion. Servido en local
+    el SDK no hace nada, y si no llega a cargar —sin red, por ejemplo— el
+    juego arranca igual, porque js/playables.js lo detecta y se queda
+    inactivo.
+  -->
+  <script src="https://www.youtube.com/game_api/v1"></script>
+
+  <script type="module" src="js/main.js"></script>
+
+  <!--
+    La capa de aplicacion instalable. Se registra solo cuando el juego se abre
+    por su cuenta: dentro de YouTube Playables va en un marco, y ahi no hay
+    nada que instalar ni conviene guardar copia de nada.
+  -->
+  <script>
+    if ('serviceWorker' in navigator && window.top === window.self &&
+      location.protocol.indexOf('http') === 0) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
+      });
+    }
+  </script>
+
+</body>
+</html>

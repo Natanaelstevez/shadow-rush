@@ -1,0 +1,28 @@
+{
+  "name": "Shadow Rush",
+  "short_name": "Shadow Rush",
+  "description": "Sigilo, luz y sombra: veinte laberintos a oscuras donde la única luz es el haz de los ovnis.",
+  "lang": "es",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0d0912",
+  "theme_color": "#0d0912",
+  "categories": ["games"],
+  "icons": [
+    {
+      "src": "assets/icono.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icono-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
